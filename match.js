@@ -5,9 +5,9 @@
             restrict: 'A',
             link: function(scope, elem, attrs, ctrl) {
                 scope.$watch(function() {
-                    return (!angular.isDefined(ctrl.$modelValue)) || $parse(attrs.match)(scope) === ctrl.$modelValue;
+                    return (ctrl.$pristine && angular.isUndefined(ctrl.$modelValue)) || $parse(attrs.match)(scope) === ctrl.$modelValue;
                 }, function(currentValue) {
-                    ctrl.$setValidity('mismatch', currentValue);
+                    ctrl.$setValidity('match', currentValue);
                 });
             }
         };
