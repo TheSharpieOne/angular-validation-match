@@ -11,7 +11,7 @@
                     ctrl.$validate();
                 });
                 ctrl.$validators.match = function(modelValue){
-                    return (ctrl.$pristine && (angular.isUndefined(modelValue) ||  || modelValue === "")) || modelValue === scope.match;
+                    return (ctrl.$pristine && (angular.isUndefined(modelValue) || modelValue === "")) || modelValue === scope.match;
                 };
             }
         };
