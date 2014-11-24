@@ -7,6 +7,13 @@ The "data-match" attribute should be set equal to the ng-model value of the fiel
 
 **Demo:** http://jsfiddle.net/TheSharpieOne/Wnv8u/
 
+Installation
+------------
+
+`bower install angular-input-match`
+
+Then add `inputMatch` to your angular dependencies
+
 Usage
 -----
 
