@@ -12,7 +12,7 @@ Installation
 
 `bower install angular-input-match`
 
-Then add `inputMatch` to your angular dependencies
+Then add `validation.match` to your angular dependencies
 
 Usage
 -----

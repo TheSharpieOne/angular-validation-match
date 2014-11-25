@@ -1,6 +1,6 @@
-angular.module('inputMatch', []);
+angular.module('validation.match', []);
 
-angular.module('inputMatch').directive('match', function () {
+angular.module('validation.match').directive('match', function () {
     return {
         require: 'ngModel',
         restrict: 'A',
