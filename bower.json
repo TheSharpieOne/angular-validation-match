@@ -6,7 +6,7 @@
         "TheSharpieOne  <evan@lostonia.com>"
     ],
     "description": "Checks if one input matches another",
-    "main": "dist/match.min.js",
+    "main": "dist/angular-input-match.min.js",
     "keywords": [
         "Angular",
         "input",
