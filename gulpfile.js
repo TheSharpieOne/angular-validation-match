@@ -64,8 +64,6 @@ gulp.task('testMin', function () {
     return gulp.src(files.mergeFilesFor('karma-min')).pipe(karmaTestConfig);
 });
 
-gulp.task('blah', gulpSequence('testBuild','buildDev','minBuild'));
-
 gulp.task('build', gulpSequence('buildDev', 'minBuild', ['testBuild','testMin']));
 
 gulp.task('release', gulpSequence('build','copyBuild','bump'));
