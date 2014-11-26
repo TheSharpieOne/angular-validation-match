@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/TheSharpieOne/angular-input-match.svg?branch=master)](https://travis-ci.org/TheSharpieOne/angular-input-match)
+
 angular-input-match
 ===================
 
@@ -5,7 +7,7 @@ Checks if one input matches another.  Useful for confirming passwords, emails, o
 
 The "data-match" attribute should be set equal to the ng-model value of the field to match.
 
-**Demo:** http://jsfiddle.net/TheSharpieOne/Wnv8u/
+**Demo:** http://jsfiddle.net/TheSharpieOne/pojkkokc/
 
 Installation
 ------------
