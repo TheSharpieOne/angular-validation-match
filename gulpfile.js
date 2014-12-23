@@ -66,4 +66,4 @@ gulp.task('testMin', function () {
 
 gulp.task('build', gulpSequence('buildDev', 'minBuild', ['testBuild','testMin']));
 
-gulp.task('release', gulpSequence('build','copyBuild','bump'));
+gulp.task('release', gulpSequence('build', 'copyBuild'));

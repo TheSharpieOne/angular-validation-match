@@ -1,7 +1,7 @@
 /*!
  * angular-input-match
  * Checks if one input matches another
- * @version v1.1.0
+ * @version v1.2.0
  * @link https://github.com/TheSharpieOne/angular-input-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
