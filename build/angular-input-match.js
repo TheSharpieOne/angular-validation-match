@@ -1,7 +1,7 @@
 /*!
  * angular-input-match
  * Checks if one input matches another
- * @version v1.0.0
+ * @version v1.1.0
  * @link https://github.com/TheSharpieOne/angular-input-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -11,26 +11,43 @@ angular.module('validation.match', []);
 
 angular.module('validation.match').directive('match', match);
 
-function match () {
+function match ($parse) {
     return {
         require: '?ngModel',
         restrict: 'A',
-        scope: {
-            match: '='
-        },
         link: function(scope, elem, attrs, ctrl) {
             if(!ctrl) {
-                console && console.warn('Match validation requires ngModel to be on the element');
+                if(console && console.warn){
+                    console.warn('Match validation requires ngModel to be on the element');
+                }
                 return;
             }
 
-            scope.$watch(function() {
-                var modelValue = angular.isUndefined(ctrl.$modelValue)? ctrl.$$invalidModelValue : ctrl.$modelValue;
-                return (ctrl.$pristine && angular.isUndefined(modelValue)) || scope.match === modelValue;
-            }, function(currentValue) {
-                ctrl.$setValidity('match', currentValue);
+            var matchGetter = $parse(attrs.match);
+            var modelSetter = $parse(attrs.ngModel).assign;
+
+            scope.$watch(attrs.match, function(){
+                modelSetter(scope, parser(ctrl.$viewValue));
             });
+
+            ctrl.$parsers.unshift(parser);
+            ctrl.$formatters.unshift(formatter);
+
+            function parser(viewValue){
+                if((ctrl.$pristine && ctrl.$isEmpty(viewValue)) || viewValue === matchGetter(scope)){
+                    ctrl.$setValidity('match', true);
+                    return viewValue;
+                }else{
+                    ctrl.$setValidity('match', false);
+                    return undefined;
+                }
+            }
+
+            function formatter(modelValue){
+                return modelValue === undefined? ctrl.$isEmpty(ctrl.$viewValue)? undefined : ctrl.$viewValue : modelValue;
+            }
         }
     };
 }
+match.$inject = ["$parse"];
 })(window, window.angular);

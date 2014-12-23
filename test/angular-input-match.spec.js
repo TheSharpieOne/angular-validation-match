@@ -13,14 +13,14 @@ describe('Directives: validation - match', function() {
 
   describe('Directive level validation', function() {
 
-    var validTemplate = '<div ng-model="confirmation" match="original"></div>';
+    var validTemplate = '<input ng-model="confirmation" match="original"></input>';
 
     describe('configuration:', function() {
 
       it('does not throw when no ngModel controller is found', function() {
         var naTemplate = '<div match="original"></div>';
         compiled = $compile(naTemplate)($scope);
-        $scope.$apply();
+        $scope.$digest();
       });
 
 
@@ -33,7 +33,7 @@ describe('Directives: validation - match', function() {
 
         for (var i = 0; i < naTemplates.length; i++) {
           compiled = $compile(naTemplates[i])($scope);
-          $scope.$apply();
+          $scope.$digest();
           expect(spy).to.have.been.not.called;
         }
       });
@@ -46,19 +46,19 @@ describe('Directives: validation - match', function() {
       it('returns true if the form is pristine and no model value has been defined', function() {
         compiled = $compile(validTemplate)($scope);
         expect($scope.confirmation).to.be.undefined();
-        $scope.$apply();
+        $scope.$digest();
         expect(compiled.hasClass('ng-valid')).to.be.true();
       });
 
 
       it('returns true if $modelValue defined and the match expression is equal to the $modelValue', function() {
-        $scope.confirmation = false;
+        $scope.confirmation = "value";
         compiled = $compile(validTemplate)($scope);
-        $scope.$apply();
+        $scope.$digest();
         expect(compiled.hasClass('ng-invalid')).to.be.true();
 
-        $scope.original = false;
-        $scope.$apply();
+        $scope.original = "value";
+        $scope.$digest();
         expect(compiled.hasClass('ng-valid')).to.be.true();
       });
 
@@ -67,7 +67,7 @@ describe('Directives: validation - match', function() {
         $scope.confirmation = false;
         $scope.original = undefined;
         compiled = $compile(validTemplate)($scope);
-        $scope.$apply();
+        $scope.$digest();
         expect(compiled.hasClass('ng-valid')).to.be.false();
       });
 
@@ -97,15 +97,19 @@ describe('Directives: validation - match', function() {
     it('should check if variables are identical', function() {
       form.testConfirm.$setViewValue(inputValue);
       $scope.$digest();
-
       expect(form.testConfirm.$error.match).to.be.undefined();
     });
 
     it('should check if variables are not identical', function() {
       form.testConfirm.$setViewValue(inputValue + 'falseValue');
       $scope.$digest();
-
       expect(form.testConfirm.$error.match).to.be.true();
+    });
+
+    it('should set $modelValue undefined if the match expression is not equal to the $viewValue', function() {
+        form.testConfirm.$setViewValue(inputValue + 'falseValue');
+        $scope.$digest();
+        expect(form.testConfirm.$modelValue).to.be.undefined();
     });
 
   });
