@@ -21,20 +21,20 @@ var banner = '/*!\n' +
 ' */\n'
 
 gulp.task('bump', function(){
-    gulp.src('./*.json')
+    return gulp.src('./*.json')
     .pipe(bump({type:'minor'}))
     .pipe(gulp.dest('./'));
 });
 
 gulp.task('buildDev', function () {
-    gulp.src(files.mergeFilesFor('src'))
+    return gulp.src(files.mergeFilesFor('src'))
     .pipe(wrap(banner+'(function(window, angular, undefined){<%= contents %>})(window, window.angular);', {pkg: pkg}))
     .pipe(ngAnnotate())
     .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('minBuild', ['buildDev'], function () {
-    gulp.src('./build/'+pkg.name+'.js')
+gulp.task('minBuild', function () {
+    return gulp.src('./build/'+pkg.name+'.js')
     .pipe(uglify(pkg.name+'.min.js', {
         outSourceMap: false,
         mangle: true,
@@ -44,12 +44,12 @@ gulp.task('minBuild', ['buildDev'], function () {
 });
 
 gulp.task('copyBuild', function () {
-    gulp.src('./build/*.js')
+    return gulp.src('./build/*.js')
     .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('default', function(){
-    gulp.watch(files.mergeFilesFor('src'), ['test']);
+    return gulp.watch(files.mergeFilesFor('src'), ['test']);
 })
 
 gulp.task('test', function () {
@@ -64,6 +64,6 @@ gulp.task('testMin', function () {
     return gulp.src(files.mergeFilesFor('karma-min')).pipe(karmaTestConfig);
 });
 
-gulp.task('build', ['buildDev', 'minBuild'], gulpSequence(['testBuild','testMin']));
+gulp.task('build', gulpSequence('buildDev', 'minBuild', ['testBuild','testMin']));
 
-gulp.task('release', gulpSequence('build', 'copyBuild'));
+gulp.task('release', gulpSequence('bump', 'build', 'copyBuild'));
