@@ -33,7 +33,7 @@ gulp.task('buildDev', function () {
     .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('minBuild', function () {
+gulp.task('minBuild', ['buildDev'], function () {
     gulp.src('./build/'+pkg.name+'.js')
     .pipe(uglify(pkg.name+'.min.js', {
         outSourceMap: false,
@@ -64,6 +64,6 @@ gulp.task('testMin', function () {
     return gulp.src(files.mergeFilesFor('karma-min')).pipe(karmaTestConfig);
 });
 
-gulp.task('build', gulpSequence('buildDev', 'minBuild', ['testBuild','testMin']));
+gulp.task('build', ['buildDev', 'minBuild'], gulpSequence(['testBuild','testMin']));
 
 gulp.task('release', gulpSequence('build', 'copyBuild'));
