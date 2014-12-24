@@ -18,7 +18,7 @@ var banner = '/*!\n' +
 ' * @version v<%= pkg.version %>\n' +
 ' * @link <%= pkg.homepage %>\n' +
 ' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
-' */\n'
+' */\n';
 
 gulp.task('bump', function(){
     return gulp.src('./*.json')
@@ -50,7 +50,7 @@ gulp.task('copyBuild', function () {
 
 gulp.task('default', function(){
     return gulp.watch(files.mergeFilesFor('src'), ['test']);
-})
+});
 
 gulp.task('test', function () {
     return gulp.src(files.mergeFilesFor('karma-src')).pipe(karmaTestConfig);
