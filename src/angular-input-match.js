@@ -27,7 +27,7 @@ function match ($parse) {
             ctrl.$formatters.unshift(formatter);
 
             function parser(viewValue){
-                if((ctrl.$pristine && ctrl.$isEmpty(viewValue)) || viewValue === matchGetter(scope)){
+                if(viewValue === matchGetter(scope)){
                     ctrl.$setValidity('match', true);
                     return viewValue;
                 }else{
