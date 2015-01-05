@@ -1,7 +1,7 @@
 /*!
  * angular-input-match
  * Checks if one input matches another
- * @version v1.2.0
+ * @version v1.3.0
  * @link https://github.com/TheSharpieOne/angular-input-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -26,7 +26,7 @@ function match ($parse) {
             var matchGetter = $parse(attrs.match);
             var modelSetter = $parse(attrs.ngModel).assign;
 
-            scope.$watch(attrs.match, function(){
+            scope.$watch(getMatchValue, function(){
                 modelSetter(scope, parser(ctrl.$viewValue));
             });
 
@@ -34,7 +34,7 @@ function match ($parse) {
             ctrl.$formatters.unshift(formatter);
 
             function parser(viewValue){
-                if(viewValue === matchGetter(scope)){
+                if(viewValue === getMatchValue()){
                     ctrl.$setValidity('match', true);
                     return viewValue;
                 }else{
@@ -45,6 +45,14 @@ function match ($parse) {
 
             function formatter(modelValue){
                 return modelValue === undefined? ctrl.$isEmpty(ctrl.$viewValue)? undefined : ctrl.$viewValue : modelValue;
+            }
+
+            function getMatchValue(){
+                var match = matchGetter(scope);
+                if(angular.isObject(match) && match.hasOwnProperty('$viewValue')){
+                    match = match.$viewValue;
+                }
+                return match;
             }
         }
     };
