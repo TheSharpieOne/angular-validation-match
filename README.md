@@ -23,14 +23,14 @@ Then add `validation.match` to your angular dependencies
 Usage
 -----
 
-**Simple Property Example without "data" prefix:**
+**Simple Property Example**
 
 ```html
 Password: <input ng-model="password" type="password" />
 Confirm: <input ng-model="passwordConfirm" type="password" match="password" />
 ```
 
-**Object Property Example without "data" prefix**
+**Object Property Example**
 
 ```html
 Password: <input ng-model="user.password" type="password" />
@@ -43,7 +43,7 @@ If your form and field both are named, you can access the validation result to s
 ```html
 <form name="myForm">
       Password: <input ng-model="user.password" type="password" name="passwordName" />
-      Confirm: <input ng-model="user.passwordConfirm" type="password" data-match="user.password" name="myConfirmField" />
+      Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.password" name="myConfirmField" />
       <div ng-show="myForm.myConfirmField.$error.match">Fields do not match!</div>
 </form>
 ```
@@ -54,7 +54,7 @@ The internal value (`$modelValue`) can differ from the external value (`$viewVal
 ```html
 <form name="myForm">
     Password: <input ng-model="user.password" type="password" name="myPasswordField" />
-    Confirm: <input ng-model="user.passwordConfirm" type="password" data-match="myForm.myPasswordField" name="myConfirmField" />
+    Confirm: <input ng-model="user.passwordConfirm" type="password" match="myForm.myPasswordField" name="myConfirmField" />
 </form>
 ```
 <small>Note: `$viewValue`s are specific to fields/elements, not models.  Different fields with the same `ngModel` and have different `$viewValue`s.  Becuase of this, you need to use the form directive (assigning a `name` to a form tag) in combination with the specific field's name attribute to specific which field/element you want to match in particular.</small>
