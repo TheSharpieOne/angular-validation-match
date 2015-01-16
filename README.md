@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/TheSharpieOne/angular-input-match.svg?branch=1.3.x)](https://travis-ci.org/TheSharpieOne/angular-input-match)
+[![Build Status](https://travis-ci.org/TheSharpieOne/angular-input-match.svg?branch=master)](https://travis-ci.org/TheSharpieOne/angular-input-match)
 [![Code Climate](https://codeclimate.com/github/TheSharpieOne/angular-input-match/badges/gpa.svg)](https://codeclimate.com/github/TheSharpieOne/angular-input-match) [![Test Coverage](https://codeclimate.com/github/TheSharpieOne/angular-input-match/badges/coverage.svg)](https://codeclimate.com/github/TheSharpieOne/angular-input-match)
 [![Coverage Status](https://coveralls.io/repos/TheSharpieOne/angular-input-match/badge.png)](https://coveralls.io/r/TheSharpieOne/angular-input-match)
 [![Dependency Status](https://david-dm.org/thesharpieone/angular-input-match.svg?style=flat)](https://david-dm.org/thesharpieone/angular-input-match)
@@ -11,7 +11,7 @@ Checks if one input matches another.  Useful for confirming passwords, emails, o
 
 The `match` attribute should be set equal to the ng-model value of the field to match.
 
-**Demo:** http://jsfiddle.net/TheSharpieOne/56e6Lgqr/
+**Demo:** http://jsfiddle.net/TheSharpieOne/q300sku2/
 
 Installation
 ------------
@@ -19,6 +19,8 @@ Installation
 `bower install angular-validation-match`
 
 Then add `validation.match` to your angular dependencies
+
+<small>*Note: For angular 1.2 or lower use* `bower install angular-validation-match#1.3`</small>
 
 Usage
 -----
