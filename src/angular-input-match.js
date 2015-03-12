@@ -19,7 +19,7 @@ function match ($parse) {
             var matchGetter = $parse(attrs.match);
 
             scope.$watch(getMatchValue, function(){
-                ctrl.$validate();
+                ctrl.$$parseAndValidate();
             });
 
             ctrl.$validators.match = function(){
