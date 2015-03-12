@@ -35,6 +35,7 @@
     }
   ],
   "devDependencies": {
+    "chai": "1.10.0",
     "gulp": "^3.8.8",
     "gulp-bump": "~0.1.0",
     "gulp-karma": "0.0.4",
