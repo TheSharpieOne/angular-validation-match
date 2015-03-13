@@ -1,6 +1,6 @@
 {
   "name": "angular-input-match",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "homepage": "https://github.com/TheSharpieOne/angular-input-match",
   "description": "Checks if one input matches another",
   "main": "./dist/angular-input-match.min.js",
@@ -35,6 +35,7 @@
     }
   ],
   "devDependencies": {
+    "chai": "1.10.0",
     "gulp": "^3.8.8",
     "gulp-bump": "~0.1.0",
     "gulp-karma": "0.0.4",

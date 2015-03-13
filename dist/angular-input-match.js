@@ -1,7 +1,7 @@
 /*!
  * angular-input-match
  * Checks if one input matches another
- * @version v1.4.0
+ * @version v1.4.1
  * @link https://github.com/TheSharpieOne/angular-input-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -26,7 +26,7 @@ function match ($parse) {
             var matchGetter = $parse(attrs.match);
 
             scope.$watch(getMatchValue, function(){
-                ctrl.$validate();
+                ctrl.$$parseAndValidate();
             });
 
             ctrl.$validators.match = function(){
