@@ -39,6 +39,14 @@ Password: <input ng-model="user.password" type="password" />
 Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.password" />
 ```
 
+**Case insensitive (caseless) Example**
+
+```html
+Password: <input ng-model="user.password" type="password" />
+Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.password" match-caseless="true" />
+```
+<small>`match-caseless` can accept a scoped variable to allow the matching to be toggle-able between case insensitive and case sensitive.</small>
+
 **Display Custom Error**<br>
 If your form and field both are named, you can access the validation result to show/hide messages.
 

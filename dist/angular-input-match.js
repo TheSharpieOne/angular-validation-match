@@ -1,7 +1,7 @@
 /*!
  * angular-input-match
  * Checks if one input matches another
- * @version v1.4.1
+ * @version v1.5.0
  * @link https://github.com/TheSharpieOne/angular-input-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -24,13 +24,18 @@ function match ($parse) {
             }
 
             var matchGetter = $parse(attrs.match);
+            var caselessGetter = $parse(attrs.matchCaseless);
 
             scope.$watch(getMatchValue, function(){
                 ctrl.$$parseAndValidate();
             });
 
             ctrl.$validators.match = function(){
-                return ctrl.$viewValue === getMatchValue();
+              var match = getMatchValue();
+              if(caselessGetter(scope) && angular.isString(match) && angular.isString(ctrl.$viewValue)){
+                return ctrl.$viewValue.toLowerCase() === match.toLowerCase();
+              }
+              return ctrl.$viewValue === match;
             };
 
             function getMatchValue(){

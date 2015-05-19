@@ -17,13 +17,18 @@ function match ($parse) {
             }
 
             var matchGetter = $parse(attrs.match);
+            var caselessGetter = $parse(attrs.matchCaseless);
 
             scope.$watch(getMatchValue, function(){
                 ctrl.$$parseAndValidate();
             });
 
             ctrl.$validators.match = function(){
-                return ctrl.$viewValue === getMatchValue();
+              var match = getMatchValue();
+              if(caselessGetter(scope) && angular.isString(match) && angular.isString(ctrl.$viewValue)){
+                return ctrl.$viewValue.toLowerCase() === match.toLowerCase();
+              }
+              return ctrl.$viewValue === match;
             };
 
             function getMatchValue(){
