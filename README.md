@@ -16,7 +16,9 @@ The "data-match" attribute should be set equal to the ng-model value of the fiel
 Installation
 ------------
 
-`bower install angular-validation-match`
+`bower install angular-validation-match#1.3
+
+<small>*Note: For angular 1.3+ use* `bower install angular-validation-match`</small>
 
 Then add `validation.match` to your angular dependencies
 
