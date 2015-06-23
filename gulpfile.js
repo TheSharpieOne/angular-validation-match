@@ -40,6 +40,7 @@ gulp.task('minBuild', function () {
         mangle: true,
         preserveComments: 'some'
     }))
+    .pipe(wrap(banner+'<%= contents %>', {pkg: pkg}))
     .pipe(gulp.dest('./build/'));
 });
 

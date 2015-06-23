@@ -1,8 +1,8 @@
 /*!
  * angular-validation-match
  * Checks if one input matches another
- * @version v1.5.0
- * @link https://github.com/TheSharpieOne/angular-input-match
+ * @version v1.5.1
+ * @link https://github.com/TheSharpieOne/angular-validation-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 (function(window, angular, undefined){'use strict';

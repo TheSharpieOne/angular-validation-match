@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/TheSharpieOne/angular-input-match.svg?branch=master)](https://travis-ci.org/TheSharpieOne/angular-input-match)
-[![Code Climate](https://codeclimate.com/github/TheSharpieOne/angular-input-match/badges/gpa.svg)](https://codeclimate.com/github/TheSharpieOne/angular-input-match) [![Test Coverage](https://codeclimate.com/github/TheSharpieOne/angular-input-match/badges/coverage.svg)](https://codeclimate.com/github/TheSharpieOne/angular-input-match)
-[![Coverage Status](https://coveralls.io/repos/TheSharpieOne/angular-input-match/badge.png)](https://coveralls.io/r/TheSharpieOne/angular-input-match)
-[![Dependency Status](https://david-dm.org/thesharpieone/angular-input-match.svg?style=flat)](https://david-dm.org/thesharpieone/angular-input-match)
-[![devDependency Status](https://david-dm.org/thesharpieone/angular-input-match/dev-status.svg?style=flat)](https://david-dm.org/thesharpieone/angular-input-match#info=devDependencies)
+[![Build Status](https://travis-ci.org/TheSharpieOne/angular-validation-match.svg?branch=master)](https://travis-ci.org/TheSharpieOne/angular-validation-match)
+[![Code Climate](https://codeclimate.com/github/TheSharpieOne/angular-validation-match/badges/gpa.svg)](https://codeclimate.com/github/TheSharpieOne/angular-validation-match) [![Test Coverage](https://codeclimate.com/github/TheSharpieOne/angular-validation-match/badges/coverage.svg)](https://codeclimate.com/github/TheSharpieOne/angular-validation-match)
+[![Coverage Status](https://coveralls.io/repos/TheSharpieOne/angular-validation-match/badge.png)](https://coveralls.io/r/TheSharpieOne/angular-validation-match)
+[![Dependency Status](https://david-dm.org/thesharpieone/angular-validation-match.svg?style=flat)](https://david-dm.org/thesharpieone/angular-validation-match)
+[![devDependency Status](https://david-dm.org/thesharpieone/angular-validation-match/dev-status.svg?style=flat)](https://david-dm.org/thesharpieone/angular-validation-match#info=devDependencies)
 
 Angular Validation: Match
 ===================
