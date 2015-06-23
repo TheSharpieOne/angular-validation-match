@@ -1,5 +1,5 @@
 /*!
- * angular-input-match
+ * angular-validation-match
  * Checks if one input matches another
  * @version v1.5.0
  * @link https://github.com/TheSharpieOne/angular-input-match
