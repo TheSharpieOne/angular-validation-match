@@ -22,6 +22,8 @@ Then add `validation.match` to your angular dependencies
 
 <small>*Note: For angular 1.2 or lower use* `bower install angular-validation-match#1.3`</small>
 
+Also: `npm install angular-validation-match`
+
 Usage
 -----
 
