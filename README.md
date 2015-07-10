@@ -11,7 +11,7 @@ Checks if one input matches another.  Useful for confirming passwords, emails, o
 
 The `match` attribute should be set equal to the ng-model value of the field to match.
 
-**Demo:** http://jsfiddle.net/TheSharpieOne/q300sku2/
+**Demo:** http://jsfiddle.net/TheSharpieOne/r6Ltru6c/
 
 Installation
 ------------
