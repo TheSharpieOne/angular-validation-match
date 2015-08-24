@@ -3,7 +3,7 @@
   "version": "1.5.1",
   "homepage": "https://github.com/TheSharpieOne/angular-validation-match",
   "description": "Checks if one input matches another",
-  "main": "./dist/angular-validation-match.min.js",
+  "main": "./index.js",
   "scripts": {
     "test": "gulp test"
   },
