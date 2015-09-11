@@ -49,7 +49,7 @@ Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.pass
 ```
 <small>`match-caseless` can accept a scoped variable to allow the matching to be toggle-able between case insensitive and case sensitive. Default: false</small>
 
-**Not Match Example**
+**Not Match Example**<br>
 Sometimes you want to ensure the values do *not* match, in that case you can use the `not-match` flag.
 This also works in combination with `match-caseless` (if you want to not match case insensitively).
 ```html
