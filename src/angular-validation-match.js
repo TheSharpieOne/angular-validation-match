@@ -18,6 +18,7 @@ function match ($parse) {
 
             var matchGetter = $parse(attrs.match);
             var caselessGetter = $parse(attrs.matchCaseless);
+            var noMatchGetter = $parse(attrs.notMatch);
 
             scope.$watch(getMatchValue, function(){
                 ctrl.$$parseAndValidate();
@@ -25,10 +26,16 @@ function match ($parse) {
 
             ctrl.$validators.match = function(){
               var match = getMatchValue();
-              if(caselessGetter(scope) && angular.isString(match) && angular.isString(ctrl.$viewValue)){
-                return ctrl.$viewValue.toLowerCase() === match.toLowerCase();
+              var notMatch = noMatchGetter(scope);
+              var value;
+
+              if(caselessGetter(scope)){
+                value = angular.lowercase(ctrl.$viewValue) === angular.lowercase(match);
+              }else{
+                value = ctrl.$viewValue === match;
               }
-              return ctrl.$viewValue === match;
+              value ^= notMatch;
+              return !!value;
             };
 
             function getMatchValue(){
