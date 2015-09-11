@@ -1,6 +1,6 @@
 {
   "name": "angular-validation-match",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "homepage": "https://github.com/TheSharpieOne/angular-validation-match",
   "description": "Checks if one input matches another",
   "main": "./index.js",
