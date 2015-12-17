@@ -9,7 +9,7 @@ var pkgFiles = {
     'node_modules/sinon/pkg/sinon.js',
     'node_modules/dirty-chai/lib/dirty-chai.js',
     'node_modules/sinon-chai/lib/sinon-chai.js',
-    'node_modules/chai/chai.js',
+    'test-helper.js',
     'node_modules/angular/angular.js',
     'node_modules/angular-mocks/angular-mocks.js'
   ],
