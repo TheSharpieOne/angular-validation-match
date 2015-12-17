@@ -2,10 +2,11 @@
 
 var gulp = require('gulp');
 var ngAnnotate = require('gulp-ng-annotate');
-var uglify = require('gulp-uglifyjs');
+var uglify = require('gulp-uglify');
 var wrap = require('gulp-wrap');
 var bump = require('gulp-bump');
 var gulpKarma = require('gulp-karma');
+var rename = require('gulp-rename');
 var gulpSequence = require('gulp-sequence').use(gulp);
 var pkg = require('./package.json');
 var files = require('./files');
@@ -17,7 +18,7 @@ var banner = '/*!\n' +
 ' * <%= pkg.description %>\n' +
 ' * @version v<%= pkg.version %>\n' +
 ' * @link <%= pkg.homepage %>\n' +
-' * @license MIT License, http://www.opensource.org/licenses/MIT\n' +
+' * @license <%= pkg.license %> License, http://www.opensource.org/licenses/<%= pkg.license %>\n' +
 ' */\n';
 
 gulp.task('bump', function(){
@@ -35,12 +36,12 @@ gulp.task('buildDev', function () {
 
 gulp.task('minBuild', function () {
     return gulp.src('./build/'+pkg.name+'.js')
-    .pipe(uglify(pkg.name+'.min.js', {
+    .pipe(uglify({
         outSourceMap: false,
         mangle: true,
-        preserveComments: 'some'
+        preserveComments: 'license'
     }))
-    .pipe(wrap(banner+'<%= contents %>', {pkg: pkg}))
+    .pipe(rename(pkg.name+'.min.js'))
     .pipe(gulp.dest('./build/'));
 });
 

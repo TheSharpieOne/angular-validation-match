@@ -10,9 +10,6 @@ function match ($parse) {
         restrict: 'A',
         link: function(scope, elem, attrs, ctrl) {
             if(!ctrl) {
-                if(console && console.warn){
-                    console.warn('Match validation requires ngModel to be on the element');
-                }
                 return;
             }
 
@@ -34,7 +31,9 @@ function match ($parse) {
               }else{
                 value = ctrl.$viewValue === match;
               }
+              /*jslint bitwise: true */
               value ^= notMatch;
+              /*jslint bitwise: false */
               return !!value;
             };
 

@@ -1,7 +1,7 @@
 /*!
  * angular-validation-match
  * Checks if one input matches another
- * @version v1.6.0
+ * @version v1.7.0
  * @link https://github.com/TheSharpieOne/angular-validation-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -17,9 +17,6 @@ function match ($parse) {
         restrict: 'A',
         link: function(scope, elem, attrs, ctrl) {
             if(!ctrl) {
-                if(console && console.warn){
-                    console.warn('Match validation requires ngModel to be on the element');
-                }
                 return;
             }
 
@@ -41,7 +38,9 @@ function match ($parse) {
               }else{
                 value = ctrl.$viewValue === match;
               }
+              /*jslint bitwise: true */
               value ^= notMatch;
+              /*jslint bitwise: false */
               return !!value;
             };
 

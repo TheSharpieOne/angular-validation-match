@@ -2,11 +2,16 @@ var pkg = require('./package.json');
 
 var pkgFiles = {
   angular: [
-    'bower_components/angular/angular.js'
+    'node_modules/angular/angular.js'
   ],
   karma: [
-    'bower_components/angular/angular.js',
-    'bower_components/angular-mocks/angular-mocks.js'
+    'node_modules/chai/chai.js',
+    'node_modules/sinon/pkg/sinon.js',
+    'node_modules/dirty-chai/lib/dirty-chai.js',
+    'node_modules/sinon-chai/lib/sinon-chai.js',
+    'node_modules/chai/chai.js',
+    'node_modules/angular/angular.js',
+    'node_modules/angular-mocks/angular-mocks.js'
   ],
   'karma-build': [
     '@karma',

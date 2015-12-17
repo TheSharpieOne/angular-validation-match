@@ -1,3 +1,4 @@
+/*global Package*/
 // package metadata file for Meteor.js
 var packageName = 'silintzir:angular-validation-match';
 var where = 'client';
