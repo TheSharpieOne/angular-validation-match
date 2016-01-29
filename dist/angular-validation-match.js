@@ -1,12 +1,13 @@
 /*!
  * angular-validation-match
  * Checks if one input matches another
- * @version v1.7.0
+ * @version v1.7.1
  * @link https://github.com/TheSharpieOne/angular-validation-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 (function(window, angular, undefined){'use strict';
 
+match.$inject = ["$parse"];
 angular.module('validation.match', []);
 
 angular.module('validation.match').directive('match', match);
@@ -23,6 +24,7 @@ function match ($parse) {
             var matchGetter = $parse(attrs.match);
             var caselessGetter = $parse(attrs.matchCaseless);
             var noMatchGetter = $parse(attrs.notMatch);
+            var matchIgnoreEmptyGetter = $parse(attrs.matchIgnoreEmpty);
 
             scope.$watch(getMatchValue, function(){
                 ctrl.$$parseAndValidate();
@@ -32,6 +34,10 @@ function match ($parse) {
               var match = getMatchValue();
               var notMatch = noMatchGetter(scope);
               var value;
+
+              if (matchIgnoreEmptyGetter(scope) && !ctrl.$viewValue) {
+                return true;
+              }
 
               if(caselessGetter(scope)){
                 value = angular.lowercase(ctrl.$viewValue) === angular.lowercase(match);
@@ -54,5 +60,4 @@ function match ($parse) {
         }
     };
 }
-match.$inject = ["$parse"];
 })(window, window.angular);

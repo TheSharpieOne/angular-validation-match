@@ -58,6 +58,14 @@ Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.pass
 ```
 <small>`not-match` can accept a scoped variable (`true`/`false`) to be toggle-able between matching and not matching. Default: false</small>
 
+**Ignore empty Example**
+
+```html
+Password: <input ng-model="user.password" type="password" />
+Confirm: <input ng-model="user.passwordConfirm" type="password" match="user.password" match-ignore-empty="true" />
+```
+<small>`match-ignore-empty` can accept a scoped variable to disable validating an empty input. Default: false</small>
+
 **Display Custom Error**<br>
 If your form and field both are named, you can access the validation result to show/hide messages.
 
