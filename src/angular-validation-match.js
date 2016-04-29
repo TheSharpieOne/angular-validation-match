@@ -22,19 +22,20 @@ function match ($parse) {
                 ctrl.$$parseAndValidate();
             });
 
-            ctrl.$validators.match = function(){
+            ctrl.$validators.match = function(modelValue, viewValue){
+              var matcher = modelValue || viewValue;
               var match = getMatchValue();
               var notMatch = noMatchGetter(scope);
               var value;
 
-              if (matchIgnoreEmptyGetter(scope) && !ctrl.$viewValue) {
+              if (matchIgnoreEmptyGetter(scope) && !viewValue) {
                 return true;
               }
 
               if(caselessGetter(scope)){
-                value = angular.lowercase(ctrl.$viewValue) === angular.lowercase(match);
+                value = angular.lowercase(matcher) === angular.lowercase(match);
               }else{
-                value = ctrl.$viewValue === match;
+                value = matcher === match;
               }
               /*jslint bitwise: true */
               value ^= notMatch;
