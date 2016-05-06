@@ -1,7 +1,7 @@
 /*!
  * angular-validation-match
  * Checks if one input matches another
- * @version v1.8.0
+ * @version v1.9.0
  * @link https://github.com/TheSharpieOne/angular-validation-match
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
@@ -17,7 +17,7 @@ function match ($parse) {
         require: '?ngModel',
         restrict: 'A',
         link: function(scope, elem, attrs, ctrl) {
-            if(!ctrl) {
+            if(!ctrl || !attrs.match) {
                 return;
             }
 
