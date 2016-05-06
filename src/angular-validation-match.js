@@ -9,7 +9,7 @@ function match ($parse) {
         require: '?ngModel',
         restrict: 'A',
         link: function(scope, elem, attrs, ctrl) {
-            if(!ctrl) {
+            if(!ctrl || !attrs.match) {
                 return;
             }
 
